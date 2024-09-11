@@ -27,18 +27,18 @@ I'm currently using the [gruvbox](https://github.com/ellisonleao/gruvbox.nvim) c
 
 Here are all the plugins currently in use:
 
-| Plugin     | Usage                                         | Priority rating |
-|------------|-------------------------------------------------------|-----------------|
-| [cmp](https://github.com/hrsh7th/nvim-cmp)        | Auto-completion engine for code and text             | 10/10           |
-| [mason](https://github.com/williamboman/mason.nvim) | LSP (Language Server Protocol) management            | 10/10           |
-| [telescope](https://github.com/nvim-telescope/telescope.nvim) | Fuzzy finder for files, buffers, and more             | 9/10            |
-| [autopairs](https://github.com/windwp/nvim-autopairs)  | Automatically inserts matching brackets and quotes    | 8/10            |
-| [treesitter](https://github.com/nvim-treesitter/nvim-treesitter) | Enhanced syntax highlighting and code parsing         | 7/10            |
-| [formatter](https://github.com/mhartington/formatter.nvim) | Code formatting for various programming languages    | 6/10            |
-| [lualine](https://github.com/nvim-lualine/lualine.nvim)    | Status line customization for Neovim                  | 5/10            |
-| [toggleterm](https://github.com/akinsho/toggleterm.nvim) | Toggle terminal integration within Neovim             | 5/10            |
-| [colorizer](https://github.com/norcalli/nvim-colorizer.lua) | Highlights color codes in files                      | 3/10            |
-| [neotree](https://github.com/nvim-neo-tree/neo-tree.nvim)    | File explorer with a tree structure                   | 3/10            |
+| Plugin | Priority rating |
+|--------|-----------------|
+| [cmp](https://github.com/hrsh7th/nvim-cmp) | 10/10 |
+| [mason](https://github.com/williamboman/mason.nvim) | 10/10 |
+| [telescope](https://github.com/nvim-telescope/telescope.nvim) | 9/10 |
+| [autopairs](https://github.com/windwp/nvim-autopairs) | 8/10 |
+| [treesitter](https://github.com/nvim-treesitter/nvim-treesitter) | 7/10 |
+| [formatter](https://github.com/mhartington/formatter.nvim) | 6/10 |
+| [lualine](https://github.com/nvim-lualine/lualine.nvim) | 5/10 |
+| [toggleterm](https://github.com/akinsho/toggleterm.nvim) | 5/10 |
+| [colorizer](https://github.com/norcalli/nvim-colorizer.lua) | 3/10 |
+| [neotree](https://github.com/nvim-neo-tree/neo-tree.nvim) | 3/10 |
 
 ---
 
