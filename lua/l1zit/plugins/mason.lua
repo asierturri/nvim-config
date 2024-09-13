@@ -1,31 +1,18 @@
 return {
 	"williamboman/mason.nvim",
-	"williamboman/mason-lspconfig.nvim",
-	"neovim/nvim-lspconfig",
-
+	dependencies = {
+		"williamboman/mason-lspconfig.nvim",
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
+	},
 	config = function()
 		require("mason").setup()
+
 		require("mason-lspconfig").setup({
+			automatic_installation = true,
 			ensure_installed = {
-				"clang",
-				"pyright",
 				"lua_ls",
-                "matlab_ls"
+				"clangd",
 			},
-            handlers = {
-                lsp.default_setup,
-                matlab_ls = function()
-                    require('lspconfig').matlab_ls.setup({
-                        filetypes = {"matlab"},
-                        settings = {
-                            matlab = {
-                                installPath = "C:/Program Files/MATLAB/R2024a"
-                            },
-                        },
-                        single_file_support = true
-                    })
-                end,
-            },
 		})
 	end,
 }
