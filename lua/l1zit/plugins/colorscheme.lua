@@ -1,8 +1,9 @@
 return {
-	"cocopon/iceberg.vim",
+	"bluz71/vim-moonfly-colors",
+	name = "moonfly",
 	lazy = false,
 	priority = 1000,
 	config = function()
-		vim.cmd("colorscheme iceberg")
+		vim.cmd("colorscheme moonfly")
 	end,
 }
