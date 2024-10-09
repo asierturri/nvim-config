@@ -24,12 +24,30 @@ return {
 		end
 
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
 		mason_lspconfig.setup_handlers({
 			function(server)
 				nvim_lsp[server].setup({
 					capabilities = capabilities,
+					on_attach = on_attach,
 				})
 			end,
+		})
+
+		nvim_lsp.matlab_ls.setup({
+			cmd = { "matlab-language-server", "--stdio" },
+			on_attach = on_attach,
+			capabilities = capabilities,
+			filetypes = { "matlab" },
+			root_dir = nvim_lsp.util.root_pattern(".git", "*.prj", "*.m"),
+			settings = {
+				MATLAB = {
+					indexWorkspace = true,
+					installPath = "C:/Program Files/MATLAB/R2024a",
+					matlabConnectionTiming = "onStart",
+					telemetry = true,
+				},
+			},
 		})
 	end,
 }
