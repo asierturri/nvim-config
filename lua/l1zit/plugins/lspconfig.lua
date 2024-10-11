@@ -55,5 +55,11 @@ return {
 			capabilities = capabilities,
 			filetypes = { "yaml" },
 		})
+
+		nvim_lsp.zls.setup({
+			on_attach = on_attach,
+			capabilities = capabilities,
+			filetypes = { "zig" },
+		})
 	end,
 }
