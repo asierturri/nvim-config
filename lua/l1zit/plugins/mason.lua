@@ -14,6 +14,7 @@ return {
 				"clangd",
 				"matlab_ls",
 				"yamlls",
+				"zls",
 			},
 		})
 	end,
