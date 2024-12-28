@@ -34,28 +34,6 @@ return {
 			end,
 		})
 
-		nvim_lsp.matlab_ls.setup({
-			cmd = { "matlab-language-server", "--stdio" },
-			on_attach = on_attach,
-			capabilities = capabilities,
-			filetypes = { "matlab" },
-			root_dir = nvim_lsp.util.root_pattern(".git", "*.prj", "*.m"),
-			settings = {
-				MATLAB = {
-					indexWorkspace = true,
-					installPath = "C:/Program Files/MATLAB/R2024b",
-					matlabConnectionTiming = "onStart",
-					telemetry = true,
-				},
-			},
-		})
-
-		nvim_lsp.yamlls.setup({
-			on_attach = on_attach,
-			capabilities = capabilities,
-			filetypes = { "yaml" },
-		})
-
 		nvim_lsp.zls.setup({
 			on_attach = on_attach,
 			capabilities = capabilities,
