@@ -10,9 +10,24 @@ return {
 		local mason_lspconfig = require("mason-lspconfig")
 
 		local protocol = require("vim.lsp.protocol")
+        
+        local format_on_save = true
+
+        vim.api.nvim_create_user_command("For", function()
+            format_on_save = not format_on_save
+            print("Format on save: " .. (format_on_save and "Enabled" or "Disabled"))
+        end, {})
 
 		local on_attach = function(client, bufnr)
-			if client.server_capabilities.socumentFormattingProvider then
+            local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
+
+            if filetype == "matlab" then
+                client.server_capabilities.documentFormattingProvider = false
+                client.server_capabilities.documentRangeFormattingProvider = false
+                return
+            end
+
+			if client.server_capabilities.documentFormattingProvider and format_on_save then
 				vim.api.nvim_create_autocmd("BufWritePre", {
 					group = vim.api.nvim_create_augroup("Format", { clear = true }),
 					buffer = bufnr,
@@ -60,6 +75,18 @@ return {
 			on_attach = on_attach,
 			capabilities = capabilities,
 			filetypes = { "zig" },
+		})
+
+		nvim_lsp.html.setup({
+			on_attach = on_attach,
+			capabilities = capabilities,
+			filetypes = { "html" },
+		})
+
+		nvim_lsp.cmake.setup({
+			on_attach = on_attach,
+			capabilities = capabilities,
+			filetypes = { "cmake" },
 		})
 	end,
 }

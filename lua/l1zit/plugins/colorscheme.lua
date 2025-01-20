@@ -1,8 +1,9 @@
 return {
-    "Mofiqul/vscode.nvim",
+    "sainnhe/everforest",
     lazy = false,
     priority = 1000,
     config = function()
-        vim.cmd.colorscheme("vscode")
+        vim.g.everforest_enable_italic = true;
+        vim.cmd.colorscheme("everforest")
     end
 }
