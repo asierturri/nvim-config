@@ -15,6 +15,8 @@ return {
 				"matlab_ls",
 				"yamlls",
 				"zls",
+                "html",
+                "cmake"
 			},
 		})
 	end,
