@@ -8,26 +8,17 @@ return {
 	config = function()
 		local nvim_lsp = require("lspconfig")
 		local mason_lspconfig = require("mason-lspconfig")
-
 		local protocol = require("vim.lsp.protocol")
-        
-        local format_on_save = true
 
+        -- Configure the format on save
+        local format_on_save = true
         vim.api.nvim_create_user_command("For", function()
             format_on_save = not format_on_save
             print("Format on save: " .. (format_on_save and "Enabled" or "Disabled"))
         end, {})
 
 		local on_attach = function(client, bufnr)
-            local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
-
-            if filetype == "matlab" then
-                client.server_capabilities.documentFormattingProvider = false
-                client.server_capabilities.documentRangeFormattingProvider = false
-                return
-            end
-
-			if client.server_capabilities.documentFormattingProvider and format_on_save then
+            if client.server_capabilities.documentFormattingProvide and format_on_save then
 				vim.api.nvim_create_autocmd("BufWritePre", {
 					group = vim.api.nvim_create_augroup("Format", { clear = true }),
 					buffer = bufnr,
@@ -35,20 +26,15 @@ return {
 						vim.lsp.buf.format()
 					end,
 				})
+            else
+                client.server_capabilities.documentFormattingProvider = false
+                client.server_capabilities.documentRangeFormattingProvider = false
 			end
 		end
 
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-		mason_lspconfig.setup_handlers({
-			function(server)
-				nvim_lsp[server].setup({
-					capabilities = capabilities,
-					on_attach = on_attach,
-				})
-			end,
-		})
-
+        -- Configure the language servers
 		nvim_lsp.matlab_ls.setup({
 			cmd = { "matlab-language-server", "--stdio" },
 			on_attach = on_attach,
@@ -65,28 +51,10 @@ return {
 			},
 		})
 
-		nvim_lsp.yamlls.setup({
-			on_attach = on_attach,
-			capabilities = capabilities,
-			filetypes = { "yaml" },
-		})
-
-		nvim_lsp.zls.setup({
-			on_attach = on_attach,
-			capabilities = capabilities,
-			filetypes = { "zig" },
-		})
-
-		nvim_lsp.html.setup({
-			on_attach = on_attach,
-			capabilities = capabilities,
-			filetypes = { "html" },
-		})
-
-		nvim_lsp.cmake.setup({
-			on_attach = on_attach,
-			capabilities = capabilities,
-			filetypes = { "cmake" },
-		})
+        nvim_lsp.clangd.setup({
+            on_attach = on_attach,
+            capabilities = capabilities,
+            filetypes = { "c" },
+        })
 	end,
 }
