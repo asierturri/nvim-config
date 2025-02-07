@@ -9,7 +9,7 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 
 -- Ruler
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "120"
 
 -- Clipboard
 vim.opt.clipboard = "unnamedplus"
