@@ -10,7 +10,6 @@ return {
             automatic_installation = true,
             ensure_installed = {
                 "clangd",
-                "matlab_ls",
             },
         })
     end,
