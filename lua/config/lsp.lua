@@ -8,22 +8,14 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-vim.lsp.config["matlab_ls"] = { 
-    cmd = { "matlab-language-server", "--stdio" },
+vim.lsp.config["clangd"] = {
+    cmd = { "clangd" },
     on_attach = on_attach,
     capabilities = capabilities,
-    filetypes = { "matlab" },
-    root_markers = { ".git", "*.prj", "*.m" },
-    settings = {
-        MATLAB = {
-            indexWorkspace = true,
-            installPath = "C:/Program Files/MATLAB/R2024b",
-            matlabConnectionTiming = "onStart",
-            telemetry = true,
-        },
-    },
-};
-vim.lsp.enable("matlab_ls")
+    filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto","hpp"},
+    root_markers = { ".git", "*.c", "*.h" },
+}
+vim.lsp.enable("clangd")
 
 vim.diagnostic.config({
     virtual_text = true,
