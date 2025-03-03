@@ -1,7 +1,7 @@
 return {
     "saghen/blink.cmp",
     version = "*",
-    dependencies = "rafamadriz/friendly-snippets",
+    --dependencies = "rafamadriz/friendly-snippets",
     
     ---@module "blink.cmp"
     ---@type blink.cmp.Config
@@ -17,7 +17,7 @@ return {
         },
 
         sources = {
-            default = { "lsp", "path", "snippets", "buffer" },
+            default = { "lsp", "path", "buffer" },
             cmdline = {},
         },
 
@@ -34,7 +34,7 @@ return {
                         enabled = true,
                     },
                     semantic_token_resolution = {
-                        enabled = true,
+                        enabled = false,
                         timeout_ms = 400,
                     },
                 }, 
@@ -57,10 +57,6 @@ return {
 
             ghost_text = { enabled },
         },
-
-        snippets = { preset = "default" },
-
-        signature = { enabled = true } ,
     },
     
     opts_extend = { "sources.default" },
