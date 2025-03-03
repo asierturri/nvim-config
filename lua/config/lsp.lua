@@ -25,6 +25,15 @@ vim.lsp.config["matlab_ls"] = {
 };
 vim.lsp.enable("matlab_ls")
 
+vim.lsp.config["clangd"] = {
+    cmd = { "clangd" },
+    on_attach = on_attach,
+    capabilities = capabilities,
+    filetypes = { "c", "cpp", ".h", ".hpp"},
+    root_markers = { ".git", "*.c", "*.cpp", "*.h", "*.hpp" },
+};
+vim.lsp.enable("clangd")
+
 vim.diagnostic.config({
     virtual_text = true,
     underline = true,
