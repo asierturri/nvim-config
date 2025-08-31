@@ -17,6 +17,14 @@ vim.lsp.config["clangd"] = {
 }
 vim.lsp.enable("clangd")
 
+vim.lsp.config["gdscript"] = {
+	on_attach = on_attach,
+	capabilities = capabilities,
+	filetypes = { "gd", "gdscript" },
+	root_markers = { "project.godot", ".git" },
+}
+vim.lsp.enable("gdscript")
+
 vim.diagnostic.config({
     virtual_text = true,
     underline = true,
