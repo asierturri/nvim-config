@@ -1,8 +1,8 @@
 return {
-    "aliqyan-21/darkvoid.nvim",
+    "savq/melange-nvim",
     lazy = false,
     priority = 1000,
     config = function()
-        vim.cmd.colorscheme("darkvoid")
+        vim.cmd.colorscheme("melange")
     end
 }
